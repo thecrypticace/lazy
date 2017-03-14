@@ -7,7 +7,7 @@ trait Statistics
     /**
      * Get the average of the given values.
      *
-     * @param  callable|string|null  $callback
+     * @param  callable|null  $callback
      * @return mixed
      */
     public function average($callback = null)
@@ -20,7 +20,7 @@ trait Statistics
     /**
      * Get the sum of the given values.
      *
-     * @param  callable|string|null  $callback
+     * @param  callable|null  $callback
      * @return mixed
      */
     public function sum($callback = null)
@@ -31,9 +31,9 @@ trait Statistics
     }
 
     /**
-     * Alias for the "avg" method.
+     * Helper for gathering the sum + count of a series of values
      *
-     * @param  callable|string|null  $callback
+     * @param  callable|null  $callback
      * @return mixed
      */
     private function sumAndCount($callback = null)
@@ -54,9 +54,9 @@ trait Statistics
     }
 
     /**
-     * Get the min value of a given key.
+     * Get the min value in the collection (optionally provided by a callback)
      *
-     * @param  callable|string|null  $callback
+     * @param  callable|null  $callback
      * @return mixed
      */
     public function min($callback = null)
@@ -79,9 +79,9 @@ trait Statistics
     }
 
     /**
-     * Get the max value of a given key.
+     * Get the max value in the collection (optionally provided by a callback)
      *
-     * @param  callable|string|null  $callback
+     * @param  callable|null  $callback
      * @return mixed
      */
     public function max($callback = null)

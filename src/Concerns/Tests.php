@@ -5,7 +5,7 @@ namespace TheCrypticAce\Lazy\Concerns;
 trait Tests
 {
     /**
-     * Get the first item from the collection.
+     * Get the first item from the collection or first item passing the given test.
      *
      * @param  callable|null  $callback
      * @param  mixed  $default
@@ -27,7 +27,7 @@ trait Tests
     }
 
     /**
-     * Get the last item from the collection.
+     * Get the last item from the collection or last item passing the given test.
      *
      * @param  callable|null  $callback
      * @param  mixed  $default
@@ -49,7 +49,7 @@ trait Tests
     }
 
     /**
-     * Get the first item from the collection.
+     * Determine of the collection contains a given item.
      *
      * @param  callable|null  $callback
      * @param  mixed  $default

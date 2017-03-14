@@ -5,7 +5,7 @@ namespace TheCrypticAce\Lazy\Concerns;
 trait Other
 {
     /**
-     * Get the keys of the collection items.
+     * Get a zero-index series of keys of the collection items.
      *
      * @return static
      */
@@ -19,7 +19,7 @@ trait Other
     }
 
     /**
-     * Get the values of the collection items.
+     * Get a zero-index series of values of the collection items.
      *
      * @return static
      */
@@ -33,7 +33,7 @@ trait Other
     }
 
     /**
-     * Execute a callback over each item.
+     * Execute a callback for each item.
      *
      * @param  callable  $callback
      * @return $this

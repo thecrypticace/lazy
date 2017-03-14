@@ -5,9 +5,9 @@ namespace TheCrypticAce\Lazy\Concerns;
 trait Range
 {
     /**
-     * Generate a range of numbers
+     * Generate a range of numbers on-demand.
      *
-     * @return array
+     * @return static
      */
     public static function range($start, $end, $step = 1)
     {

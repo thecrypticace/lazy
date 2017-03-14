@@ -5,7 +5,7 @@ namespace TheCrypticAce\Lazy\Concerns;
 trait Functional
 {
     /**
-     * Run a map over each of the items.
+     * Transform each value in the collection.
      *
      * @param  callable  $callback
      * @return static
@@ -20,7 +20,7 @@ trait Functional
     }
 
     /**
-     * Transform each key in the collection using $callback
+     * Transform each key in the collection.
      *
      * @param  callable  $callback
      * @return static
@@ -35,7 +35,7 @@ trait Functional
     }
 
     /**
-     * Map the items then flatten them
+     * Returned a transformed, flattened series of collection entries.
      *
      * @param  callable  $callback
      * @return static
@@ -46,9 +46,8 @@ trait Functional
     }
 
     /**
-     * Flatten two-dimensional entries into one-dimensional entries
+     * Flatten two-dimensional entries into one-dimensional series of entries.
      *
-     * @param  callable  $callback
      * @return static
      */
     public function collapse()
@@ -63,7 +62,7 @@ trait Functional
     }
 
     /**
-     * Run a map over each of the items.
+     * Keep or remove entries from the collection.
      *
      * @param  callable  $callback
      * @return static
@@ -84,7 +83,7 @@ trait Functional
      *
      * @param  callable  $callback
      * @param  mixed     $initial
-     * @return mixed
+     * @return static
      */
     public function accumulate(callable $callback, $initial = null)
     {
@@ -114,7 +113,7 @@ trait Functional
     }
 
     /**
-     * Zip several collection's values together
+     * Combine several collection's values together into pairs, triplets, etc…
      *
      * @param  callable  $callback
      * @param  mixed     $initial
