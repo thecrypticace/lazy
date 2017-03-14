@@ -1,0 +1,33 @@
+{
+    "name": "thecrypticace/lazy",
+    "description": "Collection-like wrapper around Iterators",
+    "keywords": ["iterators", "collections", "lazy"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jordan Pittman",
+            "email": "jordan@cryptica.me"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "tightenco/collect": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "TheCrypticAce\\Lazy\\": "src/"
+        },
+        "files": ["src/helpers.php"]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "symfony/var-dumper": "^3.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}

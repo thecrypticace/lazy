@@ -1,0 +1,60 @@
+<?php
+
+namespace Tests\Concerns;
+
+use TheCrypticAce\Lazy\Collection;
+
+trait Functional
+{
+    /** @test */
+    public function map()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertCollectionIs([2 + 0, 4 + 1, 6 + 2], $data->map(function ($value, $key) {
+            return $value * 2 + $key;
+        }));
+    }
+
+    /** @test */
+    public function flatMap()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertCollectionIs([1, 1, 2, 2, 3, 3], $data->flatMap(function ($value, $key) {
+            return array_fill(0, 2, $value);
+        })->values());
+    }
+
+    /** @test */
+    public function filter()
+    {
+        $data = $this->collect([1, 2, 3, 4, 5, 6]);
+        $this->assertCollectionIs([1 => 2, 3 => 4, 5 => 6], $data->filter(function ($value) {
+            return $value % 2 === 0;
+        }));
+    }
+
+    /** @test */
+    public function reduce()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertEquals(6, $data->reduce(function ($carry, $element) {
+            return $carry += $element;
+        }));
+    }
+
+    /** @test */
+    public function accumulate()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertCollectionIs([1, 3, 6], $data->accumulate(function ($carry, $element) {
+            return $carry += $element;
+        }));
+    }
+
+    /** @test */
+    public function zip()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertCollectionIs([[1, 1], [2, 4], [3, 9]], $data->zip([1, 4, 9]));
+    }
+}
