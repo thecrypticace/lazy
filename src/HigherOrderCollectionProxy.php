@@ -21,7 +21,7 @@ final class HigherOrderCollectionProxy
     /**
      * Create a new proxy instance.
      *
-     * @param  \Illuminate\Support\Collection  $collection
+     * @param  \TheCrypticAce\Lazy\Collection  $collection
      * @param  string  $method
      * @return void
      */
