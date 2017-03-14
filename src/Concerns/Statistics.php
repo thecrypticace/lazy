@@ -12,7 +12,13 @@ trait Statistics
      */
     public function average(callable $callback = null)
     {
-        list($sum, $count) = $this->sumAndCount($callback);
+        $count = 0;
+
+        $sum = $this->map(function ($value) use (&$count) {
+            $count += 1;
+
+            return $value;
+        })->sum($callback);
 
         return $count > 0 ? $sum / $count : null;
     }
@@ -25,32 +31,17 @@ trait Statistics
      */
     public function sum($callback = null)
     {
-        list($sum, $_) = $this->sumAndCount($callback);
-
-        return $sum;
-    }
-
-    /**
-     * Helper for gathering the sum + count of a series of values
-     *
-     * @param  callable|null  $callback
-     * @return mixed
-     */
-    private function sumAndCount($callback = null)
-    {
         $callback = $callback ?? function ($value) {
             return $value;
         };
 
         $sum = 0;
-        $count = 0;
 
         foreach ($this->items as $key => $value) {
             $sum += $callback($value, $key);
-            $count += 1;
         }
 
-        return [$sum, $count];
+        return $sum;
     }
 
     /**
