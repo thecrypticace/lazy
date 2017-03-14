@@ -25,4 +25,9 @@ trait Arrays
     {
         return new static($this->all());
     }
+
+    public function collect()
+    {
+        return collect($this->all());
+    }
 }
