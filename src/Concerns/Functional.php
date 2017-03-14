@@ -42,13 +42,7 @@ trait Functional
      */
     public function flatMap(callable $callback)
     {
-        return new static(function () use ($callback) {
-            foreach ($this->items as $key => $value) {
-                foreach ($callback($value, $key) as $subKey => $subValue) {
-                    yield $subKey => $subValue;
-                }
-            }
-        });
+        return $this->map($callback)->collapse();
     }
 
     /**
@@ -114,13 +108,9 @@ trait Functional
      */
     public function reduce(callable $callback, $initial = null)
     {
-        $accumulator = $initial;
+        $accumulator = $this->accumulate($callback, $initial)->last();
 
-        foreach ($this->accumulate($callback, $initial) as $value) {
-            $accumulator = $value;
-        }
-
-        return $accumulator;
+        return $accumulator ?? $initial;
     }
 
     /**
@@ -132,9 +122,7 @@ trait Functional
      */
     public function zip(...$collections)
     {
-        $collections = new static(array_merge([$this], array_map(function ($collection) {
-            return new static($collection);
-        }, $collections)));
+        $collections = $this->collectMany(array_merge([$this], $collections));
 
         return new static(function () use ($collections) {
             $iterators = $collections->map->getIterator()->eager();

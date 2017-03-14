@@ -71,4 +71,17 @@ final class Collection implements IteratorAggregate, Arrayable
 
         return new ArrayIterator((array) $items);
     }
+
+    /**
+     * Results iterator of items from Collection
+     *
+     * @param  mixed  $items
+     * @return Traversable
+     */
+    private function collectMany($items)
+    {
+        return (new static($items))->map(function ($item) {
+            return new static($item);
+        });
+    }
 }
