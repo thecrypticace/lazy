@@ -10,7 +10,7 @@ trait Statistics
      * @param  callable|null  $callback
      * @return mixed
      */
-    public function average($callback = null)
+    public function average(callable $callback = null)
     {
         list($sum, $count) = $this->sumAndCount($callback);
 
