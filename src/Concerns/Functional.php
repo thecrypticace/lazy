@@ -20,6 +20,21 @@ trait Functional
     }
 
     /**
+     * Transform each key in the collection using $callback
+     *
+     * @param  callable  $callback
+     * @return static
+     */
+    public function keyBy(callable $callback)
+    {
+        return new static(function () use ($callback) {
+            foreach ($this->items as $key => $value) {
+                yield $callback($value, $key) => $value;
+            }
+        });
+    }
+
+    /**
      * Map the items then flatten them
      *
      * @param  callable  $callback
@@ -30,6 +45,23 @@ trait Functional
         return new static(function () use ($callback) {
             foreach ($this->items as $key => $value) {
                 foreach ($callback($value, $key) as $subKey => $subValue) {
+                    yield $subKey => $subValue;
+                }
+            }
+        });
+    }
+
+    /**
+     * Flatten two-dimensional entries into one-dimensional entries
+     *
+     * @param  callable  $callback
+     * @return static
+     */
+    public function collapse()
+    {
+        return new static(function () {
+            foreach ($this->items as $items) {
+                foreach ($items as $subKey => $subValue) {
                     yield $subKey => $subValue;
                 }
             }

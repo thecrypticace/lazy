@@ -16,6 +16,22 @@ trait Functional
     }
 
     /** @test */
+    public function keyBy()
+    {
+        $data = $this->collect([1, 2, 3]);
+        $this->assertCollectionIs([1 => 1, 2 => 2, 3 => 3], $data->keyBy(function ($value, $key) {
+            return $value;
+        }));
+    }
+
+    /** @test */
+    public function collapse()
+    {
+        $data = $this->collect([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+        $this->assertCollectionIs([1, 2, 3, 4, 5, 6, 7, 8, 9], $data->collapse()->values());
+    }
+
+    /** @test */
     public function flatMap()
     {
         $data = $this->collect([1, 2, 3]);
