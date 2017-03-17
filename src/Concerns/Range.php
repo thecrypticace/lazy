@@ -16,10 +16,6 @@ trait Range
 
         return new static(function () use ($start, $end, $step) {
             for ($i = $start; $i <= $end; $i += $step) {
-                if ($i > $end) {
-                    continue;
-                }
-
                 yield $i;
             }
         });
