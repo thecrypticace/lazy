@@ -4,6 +4,7 @@ namespace TheCrypticAce\Lazy\Concerns;
 
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Collection as IlluminateCollection;
 
 trait Arrays
 {
@@ -48,6 +49,6 @@ trait Arrays
      */
     public function collect()
     {
-        return collect($this->all());
+        return new IlluminateCollection($this->all());
     }
 }
