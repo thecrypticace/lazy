@@ -16,4 +16,22 @@ trait Ranges
         $c = $this->collection()->range(0, 10, 3);
         $this->assertCollectionIs([0, 3, 6, 9], $c);
     }
+
+    /**
+      * @test
+      * @expectedException \AssertionError
+      **/
+    public function assertions_are_thrown_for_invalid_range_steps()
+    {
+        $this->collection()->range(0, 1, 2);
+    }
+
+    /**
+      * @test
+      * @expectedException \AssertionError
+      **/
+    public function assertions_are_thrown_for_invalid_range_bounds()
+    {
+        $this->collection()->range(1, 0);
+    }
 }

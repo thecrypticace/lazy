@@ -2,7 +2,7 @@
 
 namespace Tests\Concerns;
 
-use TheCrypticAce\Lazy\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 
 trait Arrays
@@ -28,5 +28,13 @@ trait Arrays
         $c = $this->collect([1, 2, 3]);
 
         $this->assertCollectionIs([1, 2, 3], $c);
+    }
+
+    /** @test */
+    public function lazy_collections_can_be_converted_to_illuminate_collections()
+    {
+        $c = $this->collect([1, 2, 3])->collect();
+
+        $this->assertInstanceOf(Collection::class, $c);
     }
 }

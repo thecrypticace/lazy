@@ -7,14 +7,14 @@ use TheCrypticAce\Lazy\Collection;
 trait Tests
 {
     /** @test */
-    public function firstReturnsFirstItemInCollection()
+    public function first_returns_first_item_in_collection()
     {
-        $c = $this->collect(['foo', 'bar']);
-        $this->assertEquals('foo', $c->first());
+        $c = $this->collect(["foo", "bar"]);
+        $this->assertEquals("foo", $c->first());
     }
 
     /** @test */
-    public function firstWithCallback()
+    public function first_with_callback()
     {
         $data = $this->collect(["foo", "bar", "baz"]);
         $result = $data->first(function ($value) {
@@ -24,7 +24,7 @@ trait Tests
     }
 
     /** @test */
-    public function firstWithCallbackAndDefault()
+    public function first_with_callback_and_default()
     {
         $data = $this->collect(["foo", "bar"]);
         $result = $data->first(function ($value) {
@@ -34,23 +34,23 @@ trait Tests
     }
 
     /** @test */
-    public function firstWithDefaultAndWithoutCallback()
+    public function first_with_default_and_without_callback()
     {
-        $data = new Collection;
+        $data = $this->collect();
         $result = $data->first(null, "default");
         $this->assertEquals("default", $result);
     }
 
     /** @test */
-    public function lastReturnsLastItemInCollection()
+    public function last_returns_last_item_in_collection()
     {
-        $c = $this->collect(['foo', 'bar']);
+        $c = $this->collect(["foo", "bar"]);
 
-        $this->assertEquals('bar', $c->last());
+        $this->assertEquals("bar", $c->last());
     }
 
     /** @test */
-    public function lastWithCallback()
+    public function last_with_callback()
     {
         $data = $this->collect([100, 200, 300]);
         $result = $data->last(function ($value) {
@@ -64,20 +64,36 @@ trait Tests
     }
 
     /** @test */
-    public function lastWithCallbackAndDefault()
+    public function last_with_callback_and_default()
     {
-        $data = $this->collect(['foo', 'bar']);
+        $data = $this->collect(["foo", "bar"]);
         $result = $data->last(function ($value) {
-            return $value === 'baz';
-        }, 'default');
-        $this->assertEquals('default', $result);
+            return $value === "baz";
+        }, "default");
+        $this->assertEquals("default", $result);
     }
 
     /** @test */
-    public function lastWithDefaultAndWithoutCallback()
+    public function last_with_default_and_without_callback()
     {
         $data = $this->collect();
-        $result = $data->last(null, 'default');
-        $this->assertEquals('default', $result);
+        $result = $data->last(null, "default");
+        $this->assertEquals("default", $result);
+    }
+
+    /** @test */
+    public function contains_determines_availability_in_collection(callable $callback = null)
+    {
+        $c = $this->collect(["a", "b", "c"]);
+
+        $this->assertTrue($c->contains(function ($value) {
+            return $value === "a";
+        }));
+
+        $c = $this->collect([["foo" => true], ["foo" => false]]);
+        $this->assertTrue($c->contains->foo);
+
+        $c = $this->collect([["foo" => false], ["foo" => false]]);
+        $this->assertFalse($c->contains->foo);
     }
 }
