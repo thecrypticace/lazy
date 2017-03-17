@@ -23,7 +23,7 @@ final class Collection implements IteratorAggregate, Arrayable
     /**
      * The items contained in the collection.
      *
-     * @var Items
+     * @var Traversable
      */
     protected $items;
 
