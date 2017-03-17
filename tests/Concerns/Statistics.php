@@ -7,10 +7,10 @@ trait Statistics
     /** @test */
     public function average($callback = null)
     {
-        $c = lazy([(object) ['foo' => 50], (object) ['foo' => 50]]);
+        $c = lazy([(object) ["foo" => 50], (object) ["foo" => 50]]);
         $this->assertEquals(50, $c->average->foo);
 
-        $c = lazy([(object) ['foo' => 50], (object) ['foo' => 50]]);
+        $c = lazy([(object) ["foo" => 50], (object) ["foo" => 50]]);
         $this->assertEquals(50, $c->average(function ($i) {
             return $i->foo;
         }));
@@ -19,10 +19,10 @@ trait Statistics
     /** @test */
     public function a_collection_can_sum_values_from_items()
     {
-        $c = lazy([(object) ['foo' => 50], (object) ['foo' => 50]]);
+        $c = lazy([(object) ["foo" => 50], (object) ["foo" => 50]]);
         $this->assertEquals(100, $c->sum->foo);
 
-        $c = lazy([(object) ['foo' => 50], (object) ['foo' => 50]]);
+        $c = lazy([(object) ["foo" => 50], (object) ["foo" => 50]]);
         $this->assertEquals(100, $c->sum(function ($i) {
             return $i->foo;
         }));
@@ -46,13 +46,13 @@ trait Statistics
     /** @test */
     public function max()
     {
-        $c = lazy([(object) ['foo' => 10], (object) ['foo' => 20]]);
+        $c = lazy([(object) ["foo" => 10], (object) ["foo" => 20]]);
         $this->assertEquals(20, $c->max(function ($item) {
             return $item->foo;
         }));
         $this->assertEquals(20, $c->max->foo);
 
-        $c = lazy([['foo' => 10], ['foo' => 20]]);
+        $c = lazy([["foo" => 10], ["foo" => 20]]);
         $this->assertEquals(20, $c->max->foo);
 
         $c = lazy([1, 2, 3, 4, 5]);
@@ -65,13 +65,13 @@ trait Statistics
     /** @test */
     public function min()
     {
-        $c = lazy([(object) ['foo' => 10], (object) ['foo' => 20]]);
+        $c = lazy([(object) ["foo" => 10], (object) ["foo" => 20]]);
         $this->assertEquals(10, $c->min(function ($item) {
             return $item->foo;
         }));
         $this->assertEquals(10, $c->min->foo);
 
-        $c = lazy([['foo' => 10], ['foo' => 20]]);
+        $c = lazy([["foo" => 10], ["foo" => 20]]);
         $this->assertEquals(10, $c->min->foo);
 
         $c = lazy([1, 2, 3, 4, 5]);

@@ -2,7 +2,7 @@
 
 use TheCrypticAce\Lazy\Collection;
 
-if (! function_exists('lazy')) {
+if (! function_exists("lazy")) {
     /**
      * Create a collection from the given value.
      *
@@ -15,7 +15,7 @@ if (! function_exists('lazy')) {
     }
 }
 
-if (! function_exists('lazy_range')) {
+if (! function_exists("lazy_range")) {
     /**
      * Create a collection from the given value.
      *
