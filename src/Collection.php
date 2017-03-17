@@ -47,7 +47,7 @@ final class Collection implements IteratorAggregate, Arrayable
      *
      * @return Traversable
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->items;
     }
@@ -58,7 +58,7 @@ final class Collection implements IteratorAggregate, Arrayable
      * @param  mixed  $items
      * @return Traversable
      */
-    private function getIterableItems($items)
+    private function getIterableItems($items): Traversable
     {
         if ($items instanceof self) {
             return $items->getIterator();
@@ -77,7 +77,7 @@ final class Collection implements IteratorAggregate, Arrayable
      * @param  mixed  $items
      * @return Traversable
      */
-    private function collectMany($items)
+    private function collectMany($items): self
     {
         return (new static($items))->map(function ($item) {
             return new static($item);

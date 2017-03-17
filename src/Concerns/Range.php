@@ -9,7 +9,7 @@ trait Range
      *
      * @return static
      */
-    public static function range($start, $end, $step = 1)
+    public static function range($start, $end, $step = 1): self
     {
         assert($start <= $end);
         assert($step <= ($end - $start));

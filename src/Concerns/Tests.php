@@ -55,7 +55,7 @@ trait Tests
      * @param  mixed  $default
      * @return bool
      */
-    public function contains(callable $callback = null)
+    public function contains(callable $callback = null): bool
     {
         return ! is_null($this->first($callback));
     }

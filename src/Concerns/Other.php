@@ -9,7 +9,7 @@ trait Other
      *
      * @return static
      */
-    public function keys()
+    public function keys(): self
     {
         return new static(function () {
             foreach ($this->items as $key => $_) {
@@ -23,7 +23,7 @@ trait Other
      *
      * @return static
      */
-    public function values()
+    public function values(): self
     {
         return new static(function () {
             foreach ($this->items as $value) {
@@ -38,7 +38,7 @@ trait Other
      * @param  callable  $callback
      * @return $this
      */
-    public function each(callable $callback)
+    public function each(callable $callback): self
     {
         foreach ($this->items as $key => $item) {
             if ($callback($item, $key) === false) {

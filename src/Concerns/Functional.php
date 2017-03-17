@@ -10,7 +10,7 @@ trait Functional
      * @param  callable  $callback
      * @return static
      */
-    public function map(callable $callback)
+    public function map(callable $callback): self
     {
         return new static(function () use ($callback) {
             foreach ($this->items as $key => $value) {
@@ -25,7 +25,7 @@ trait Functional
      * @param  callable  $callback
      * @return static
      */
-    public function keyBy(callable $callback)
+    public function keyBy(callable $callback): self
     {
         return new static(function () use ($callback) {
             foreach ($this->items as $key => $value) {
@@ -40,7 +40,7 @@ trait Functional
      * @param  callable  $callback
      * @return static
      */
-    public function flatMap(callable $callback)
+    public function flatMap(callable $callback): self
     {
         return $this->map($callback)->collapse();
     }
@@ -50,7 +50,7 @@ trait Functional
      *
      * @return static
      */
-    public function collapse()
+    public function collapse(): self
     {
         return new static(function () {
             foreach ($this->items as $items) {
@@ -67,7 +67,7 @@ trait Functional
      * @param  callable  $callback
      * @return static
      */
-    public function filter(callable $callback)
+    public function filter(callable $callback): self
     {
         return new static(function () use ($callback) {
             foreach ($this->items as $key => $value) {
@@ -85,7 +85,7 @@ trait Functional
      * @param  mixed     $initial
      * @return static
      */
-    public function accumulate(callable $callback, $initial = null)
+    public function accumulate(callable $callback, $initial = null): self
     {
         return new static(function () use ($callback, $initial) {
             $accumulator = $initial;
@@ -119,7 +119,7 @@ trait Functional
      * @param  mixed     $initial
      * @return static
      */
-    public function zip(...$collections)
+    public function zip(...$collections): self
     {
         $collections = $this->collectMany(array_merge([$this], $collections));
 

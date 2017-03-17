@@ -12,7 +12,7 @@ trait Arrays
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $items = $this->map(function ($value) {
             return $value instanceof Arrayable ? $value->toArray() : $value;
@@ -26,7 +26,7 @@ trait Arrays
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         return iterator_to_array($this->items, true);
     }
@@ -36,7 +36,7 @@ trait Arrays
      *
      * @return static
      */
-    public function eager()
+    public function eager(): self
     {
         return new static($this->all());
     }

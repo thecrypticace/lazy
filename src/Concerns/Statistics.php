@@ -29,7 +29,7 @@ trait Statistics
      * @param  callable|null  $callback
      * @return int
      */
-    public function sum($callback = null)
+    public function sum($callback = null): int
     {
         $callback = $callback ?? function ($value) {
             return $value;
