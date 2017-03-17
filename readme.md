@@ -1,3 +1,10 @@
+<p align="center">
+<a href="https://travis-ci.org/thecrypticace/lazy"><img src="https://travis-ci.org/thecrypticace/lazy.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/thecrypticace/lazy"><img src="https://poser.pugx.org/thecrypticace/lazy/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/thecrypticace/lazy"><img src="https://poser.pugx.org/thecrypticace/lazy/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/thecrypticace/lazy"><img src="https://poser.pugx.org/thecrypticace/lazy/license.svg" alt="License"></a>
+</p>
+
 # Lazy Collections
 
 ## What
