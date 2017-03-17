@@ -53,7 +53,7 @@ trait Tests
      *
      * @param  callable|null  $callback
      * @param  mixed  $default
-     * @return mixed
+     * @return bool
      */
     public function contains(callable $callback = null)
     {
