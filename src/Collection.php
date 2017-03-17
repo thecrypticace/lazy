@@ -75,9 +75,9 @@ final class Collection implements IteratorAggregate, Arrayable
      * Results iterator of items from Collection.
      *
      * @param  mixed  $items
-     * @return Traversable
+     * @return static
      */
-    private function collectMany($items): self
+    private static function splat(...$items): self
     {
         return (new static($items))->map(function ($item) {
             return new static($item);

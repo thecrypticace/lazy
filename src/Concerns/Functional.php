@@ -121,7 +121,7 @@ trait Functional
      */
     public function zip(...$collections): self
     {
-        $collections = $this->collectMany(array_merge([$this], $collections));
+        $collections = static::splat($this, ...$collections);
 
         return new static(function () use ($collections) {
             $iterators = $collections->map->getIterator()->eager();
