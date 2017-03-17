@@ -117,7 +117,7 @@ trait Functional
      *
      * @param  callable  $callback
      * @param  mixed     $initial
-     * @return mixed
+     * @return static
      */
     public function zip(...$collections)
     {

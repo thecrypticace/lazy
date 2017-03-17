@@ -27,7 +27,7 @@ trait Statistics
      * Get the sum of the given values.
      *
      * @param  callable|null  $callback
-     * @return mixed
+     * @return int
      */
     public function sum($callback = null)
     {

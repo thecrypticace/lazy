@@ -7,7 +7,7 @@ if (! function_exists('lazy')) {
      * Create a collection from the given value.
      *
      * @param  mixed  $value
-     * @return \Lazy\Collection
+     * @return \TheCrypticAce\Lazy\Collection
      */
     function lazy($value = null)
     {
@@ -20,7 +20,7 @@ if (! function_exists('lazy_range')) {
      * Create a collection from the given value.
      *
      * @param  mixed  $value
-     * @return \Lazy\Collection
+     * @return \TheCrypticAce\Lazy\Collection
      */
     function lazy_range($start, $end, $step = 1)
     {

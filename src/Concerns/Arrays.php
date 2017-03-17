@@ -34,7 +34,7 @@ trait Arrays
     /**
      * Return a collection backed by an array. Good for reiteration.
      *
-     * @return array
+     * @return static
      */
     public function eager()
     {
@@ -44,7 +44,7 @@ trait Arrays
     /**
      * Convert to an Illuminate Collection.
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
      */
     public function collect()
     {
