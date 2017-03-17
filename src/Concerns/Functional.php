@@ -113,7 +113,7 @@ trait Functional
     }
 
     /**
-     * Combine several collection's values together into pairs, triplets, etc…
+     * Combine several collection's values together into pairs, triplets, etc….
      *
      * @param  callable  $callback
      * @param  mixed     $initial

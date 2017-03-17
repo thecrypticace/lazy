@@ -4,7 +4,6 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use TheCrypticAce\Lazy\Collection;
-use Illuminate\Contracts\Support\Arrayable;
 
 class CollectionTest extends TestCase
 {

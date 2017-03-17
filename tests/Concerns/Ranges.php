@@ -18,18 +18,18 @@ trait Ranges
     }
 
     /**
-      * @test
-      * @expectedException \AssertionError
-      **/
+     * @test
+     * @expectedException \AssertionError
+     **/
     public function assertions_are_thrown_for_invalid_range_steps()
     {
         lazy_range(0, 1, 2);
     }
 
     /**
-      * @test
-      * @expectedException \AssertionError
-      **/
+     * @test
+     * @expectedException \AssertionError
+     **/
     public function assertions_are_thrown_for_invalid_range_bounds()
     {
         lazy_range(1, 0);

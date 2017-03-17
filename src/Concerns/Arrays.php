@@ -2,7 +2,6 @@
 
 namespace TheCrypticAce\Lazy\Concerns;
 
-use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection as IlluminateCollection;
 

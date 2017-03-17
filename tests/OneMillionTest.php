@@ -37,7 +37,6 @@ class OneMillionTest extends TestCase
     {
         $calls = 0;
 
-
         $n = lazy(range(1, 1000000))
 
         ->filter(function ($n) use (&$calls) {

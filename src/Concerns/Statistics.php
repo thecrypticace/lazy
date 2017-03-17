@@ -45,7 +45,7 @@ trait Statistics
     }
 
     /**
-     * Get the min value in the collection (optionally provided by a callback)
+     * Get the min value in the collection (optionally provided by a callback).
      *
      * @param  callable|null  $callback
      * @return mixed
@@ -70,7 +70,7 @@ trait Statistics
     }
 
     /**
-     * Get the max value in the collection (optionally provided by a callback)
+     * Get the max value in the collection (optionally provided by a callback).
      *
      * @param  callable|null  $callback
      * @return mixed

@@ -2,8 +2,6 @@
 
 namespace Tests\Concerns;
 
-use TheCrypticAce\Lazy\Collection;
-
 trait Tests
 {
     /** @test */

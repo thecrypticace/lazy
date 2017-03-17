@@ -12,7 +12,6 @@ use Illuminate\Contracts\Support\Arrayable;
 final class Collection implements IteratorAggregate, Arrayable
 {
     use Macroable;
-
     use Concerns\Range;
     use Concerns\Tests;
     use Concerns\Other;
@@ -54,7 +53,7 @@ final class Collection implements IteratorAggregate, Arrayable
     }
 
     /**
-     * Results iterator of items from Collection
+     * Results iterator of items from Collection.
      *
      * @param  mixed  $items
      * @return Traversable
@@ -73,7 +72,7 @@ final class Collection implements IteratorAggregate, Arrayable
     }
 
     /**
-     * Results iterator of items from Collection
+     * Results iterator of items from Collection.
      *
      * @param  mixed  $items
      * @return Traversable
