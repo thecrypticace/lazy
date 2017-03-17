@@ -29,16 +29,6 @@ class CollectionTest extends TestCase
         $this->assertEquals(Collection::range(0, 1), lazy_range(0, 1));
     }
 
-    private function collect($data = [])
-    {
-        return new Collection($data);
-    }
-
-    private function collection()
-    {
-        return new Collection();
-    }
-
     private function assertCollectionIs($expected, $actual, $message = "")
     {
         $this->assertEquals($expected, $actual->toArray(), $message);

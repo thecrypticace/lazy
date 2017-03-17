@@ -9,21 +9,21 @@ trait Other
     /** @test */
     public function keys()
     {
-        $c = $this->collect(["a" => "foo", "b" => "bar"]);
+        $c = lazy(["a" => "foo", "b" => "bar"]);
         $this->assertCollectionIs(["a", "b"], $c->keys());
     }
 
     /** @test */
     public function values()
     {
-        $c = $this->collect(["a" => "foo", "b" => "bar"]);
+        $c = lazy(["a" => "foo", "b" => "bar"]);
         $this->assertCollectionIs(["foo", "bar"], $c->values());
     }
 
     /** @test */
     public function each()
     {
-        $c = $this->collect([1, 2, 3, 4, 5]);
+        $c = lazy([1, 2, 3, 4, 5]);
 
         $result = [];
 
