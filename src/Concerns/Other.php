@@ -50,7 +50,7 @@ trait Other
     }
 
     /**
-     * Chunk items into groups of a given size
+     * Chunk items into groups of a given size.
      *
      * The last chunk will contain fewer than `count`
      * items when the collection is not large enough
