@@ -31,4 +31,35 @@ trait Other
 
         $this->assertEquals(["0-1", "1-2", "2-3", "3-4", "4-5"], $result);
     }
+
+    /** @test */
+    public function chunk()
+    {
+        $result = lazy()->chunk(1);
+        $this->assertCollectionIs([], $result);
+
+        $result = lazy([1])->chunk(1);
+        $this->assertCollectionIs([[1]], $result);
+
+        $result = lazy([1, 2, 3])->chunk(1);
+        $this->assertCollectionIs([[1], [2], [3]], $result);
+
+        $result = lazy()->chunk(2);
+        $this->assertCollectionIs([], $result);
+
+        $result = lazy([1])->chunk(2);
+        $this->assertCollectionIs([[1]], $result);
+
+        $result = lazy([1, 2, 3])->chunk(2);
+        $this->assertCollectionIs([[1, 2], [3]], $result);
+
+        $result = lazy()->chunk(PHP_INT_MAX);
+        $this->assertCollectionIs([], $result);
+
+        $result = lazy([1])->chunk(PHP_INT_MAX);
+        $this->assertCollectionIs([[1]], $result);
+
+        $result = lazy([1, 2, 3])->chunk(PHP_INT_MAX);
+        $this->assertCollectionIs([[1, 2, 3]], $result);
+    }
 }

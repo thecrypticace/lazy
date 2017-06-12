@@ -48,4 +48,41 @@ trait Other
 
         return $this;
     }
+
+    /**
+     * Chunk items into groups of a given size
+     *
+     * The last chunk will contain fewer than `count`
+     * items when the collection is not large enough
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
+    public function chunk(int $count): self
+    {
+        assert($count > 0, "You cannot chunk items into groups of size zero");
+
+        return new static(function () use ($count) {
+            $i = 0;
+
+            $batch = [];
+
+            foreach ($this->items as $value) {
+                $i += 1;
+
+                $batch[] = $value;
+
+                if ($i === $count) {
+                    yield new static($batch);
+
+                    $i = 0;
+                    $batch = [];
+                }
+            }
+
+            if ($batch) {
+                yield new static($batch);
+            }
+        });
+    }
 }
