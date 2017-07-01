@@ -38,8 +38,8 @@ trait Functional
         })->values());
 
         $data = lazy([
-            ["foo" => [1,2,3]],
-            ["foo" => [4,5,6]],
+            ["foo" => [1, 2, 3]],
+            ["foo" => [4, 5, 6]],
         ]);
 
         $this->assertCollectionIs([1, 2, 3, 4, 5, 6], $data->flatMap->foo->values());
