@@ -78,4 +78,32 @@ trait Functional
         $data = lazy([1, 2, 3]);
         $this->assertCollectionIs([[1, 1], [2, 4], [3, 9]], $data->zip([1, 4, 9]));
     }
+
+    /** @test */
+    public function pipe()
+    {
+        $data = lazy([1, 2, 3]);
+        $data = $data->pipe(function ($data) {
+            return lazy([2, 3, 4]);
+        });
+
+        $this->assertCollectionIs([2, 3, 4], $data);
+    }
+
+    /** @test */
+    public function pipeThrough()
+    {
+        $data = lazy([4, 5, 6]);
+        $data = $data->pipeThrough([
+            function ($data) {
+                return $data->append([7, 8, 9]);
+            },
+
+            function ($data) {
+                return $data->prepend([1, 2, 3]);
+            },
+        ]);
+
+        $this->assertCollectionIs([1, 2, 3, 4, 5, 6, 7, 8, 9], $data->values());
+    }
 }

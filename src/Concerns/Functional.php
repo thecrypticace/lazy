@@ -134,4 +134,28 @@ trait Functional
             }
         });
     }
+
+    /**
+     * Return the result of passing the entire collection to a callback
+     *
+     * @param  callable  $callback
+     * @return mixed
+     */
+    public function pipe(callable $callback)
+    {
+        return $callback($this);
+    }
+
+    /**
+     * Return the result of passing the entire collection through a series of callbacks
+     *
+     * @param  callable[]  $callbacks
+     * @return mixed
+     */
+    public function pipeThrough(/* iterable */ $callbacks)
+    {
+        return (new static($callbacks))->reduce(function ($collection, $callback) {
+            return $collection->pipe($callback);
+        }, $this);
+    }
 }
