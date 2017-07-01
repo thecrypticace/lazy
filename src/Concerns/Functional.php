@@ -136,7 +136,7 @@ trait Functional
     }
 
     /**
-     * Return the result of passing the entire collection to a callback
+     * Return the result of passing the entire collection to a callback.
      *
      * @param  callable  $callback
      * @return mixed
@@ -147,7 +147,7 @@ trait Functional
     }
 
     /**
-     * Return the result of passing the entire collection through a series of callbacks
+     * Return the result of passing the entire collection through a series of callbacks.
      *
      * @param  callable[]  $callbacks
      * @return mixed

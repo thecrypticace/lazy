@@ -87,8 +87,8 @@ trait Other
     }
 
     /**
-    * Return a new collection with the series
-    * of items prepended to the current one
+     * Return a new collection with the series
+     * of items prepended to the current one.
      *
      * @param  callable  $callback
      * @return $this
@@ -103,7 +103,7 @@ trait Other
 
     /**
      * Return a new collection with the series
-     * of items appended to the current one
+     * of items appended to the current one.
      *
      * @param  callable  $callback
      * @return $this
