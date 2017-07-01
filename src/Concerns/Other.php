@@ -85,4 +85,34 @@ trait Other
             }
         });
     }
+
+    /**
+    * Return a new collection with the series
+    * of items prepended to the current one
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
+    public function prepend($items): self
+    {
+        return new static(function () use ($items) {
+            yield from $items;
+            yield from $this;
+        });
+    }
+
+    /**
+     * Return a new collection with the series
+     * of items appended to the current one
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
+    public function append($items): self
+    {
+        return new static(function () use ($items) {
+            yield from $this;
+            yield from $items;
+        });
+    }
 }

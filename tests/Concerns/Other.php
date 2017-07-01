@@ -62,4 +62,18 @@ trait Other
         $result = lazy([1, 2, 3])->chunk(PHP_INT_MAX);
         $this->assertCollectionIs([[1, 2, 3]], $result);
     }
+
+    /** @test */
+    public function prepend()
+    {
+        $data = lazy([1, 2, 3]);
+        $this->assertCollectionIs([4, 5, 6, 1, 2, 3], $data->prepend([4, 5, 6])->values());
+    }
+
+    /** @test */
+    public function append()
+    {
+        $data = lazy([1, 2, 3]);
+        $this->assertCollectionIs([1, 2, 3, 4, 5, 6], $data->append([4, 5, 6])->values());
+    }
 }
