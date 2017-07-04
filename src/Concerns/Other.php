@@ -80,7 +80,7 @@ trait Other
                 }
             }
 
-            if ($batch) {
+            if (! empty($batch)) {
                 yield new static($batch);
             }
         });
