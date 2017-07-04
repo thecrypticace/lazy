@@ -18,11 +18,11 @@ if (! function_exists("lazy")) {
 if (! function_exists("lazy_range")) {
     /**
      * Return a lazily-generated range of numbers staring from `$start`
-     * to `$end` where the difference between each element is `$step`
+     * to `$end` where the difference between each element is `$step`.
      *
-     * @param  int|double  $start
-     * @param  int|double  $end
-     * @param  int|double  $step
+     * @param  int|float  $start
+     * @param  int|float  $end
+     * @param  int|float  $step
      * @return \TheCrypticAce\Lazy\Collection
      */
     function lazy_range($start, $end, $step = 1)
