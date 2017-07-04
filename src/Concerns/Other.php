@@ -5,7 +5,7 @@ namespace TheCrypticAce\Lazy\Concerns;
 trait Other
 {
     /**
-     * Get a zero-index series of keys of the collection items.
+     * Get a zero-indexed series of keys of the collection items.
      *
      * @return static
      */
@@ -19,7 +19,7 @@ trait Other
     }
 
     /**
-     * Get a zero-index series of values of the collection items.
+     * Get a zero-indexed series of values of the collection items.
      *
      * @return static
      */
