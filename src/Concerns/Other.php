@@ -55,8 +55,8 @@ trait Other
      * The last chunk will contain fewer than `count`
      * items when the collection is not large enough
      *
-     * @param  callable  $callback
-     * @return $this
+     * @param  int  $count
+     * @return static
      */
     public function chunk(int $count): self
     {
@@ -90,8 +90,8 @@ trait Other
      * Return a new collection with the series
      * of items prepended to the current one.
      *
-     * @param  callable  $callback
-     * @return $this
+     * @param  iterable  $items
+     * @return static
      */
     public function prepend($items): self
     {
@@ -105,8 +105,8 @@ trait Other
      * Return a new collection with the series
      * of items appended to the current one.
      *
-     * @param  callable  $callback
-     * @return $this
+     * @param  iterable  $items
+     * @return static
      */
     public function append($items): self
     {

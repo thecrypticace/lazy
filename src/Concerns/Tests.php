@@ -52,7 +52,6 @@ trait Tests
      * Determine of the collection contains a given item.
      *
      * @param  callable|null  $callback
-     * @param  mixed  $default
      * @return bool
      */
     public function contains(callable $callback = null): bool

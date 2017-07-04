@@ -17,9 +17,12 @@ if (! function_exists("lazy")) {
 
 if (! function_exists("lazy_range")) {
     /**
-     * Create a collection from the given value.
+     * Return a lazily-generated range of numbers staring from `$start`
+     * to `$end` where the difference between each element is `$step`
      *
-     * @param  mixed  $value
+     * @param  int|double  $start
+     * @param  int|double  $end
+     * @param  int|double  $step
      * @return \TheCrypticAce\Lazy\Collection
      */
     function lazy_range($start, $end, $step = 1)

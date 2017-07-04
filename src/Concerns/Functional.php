@@ -115,8 +115,7 @@ trait Functional
     /**
      * Combine several collection's values together into pairs, triplets, etc….
      *
-     * @param  callable  $callback
-     * @param  mixed     $initial
+     * @param  iterable... $collections
      * @return static
      */
     public function zip(...$collections): self
