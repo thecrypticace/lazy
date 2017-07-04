@@ -28,7 +28,7 @@ trait Arrays
      */
     public function all(): array
     {
-        return iterator_to_array($this->items, true);
+        return iterator_to_array($this, true);
     }
 
     /**

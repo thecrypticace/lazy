@@ -37,7 +37,7 @@ trait Statistics
 
         $sum = 0;
 
-        foreach ($this->items as $key => $value) {
+        foreach ($this as $key => $value) {
             $sum += $callback($value, $key);
         }
 
@@ -58,7 +58,7 @@ trait Statistics
 
         $result = null;
 
-        foreach ($this->items as $key => $value) {
+        foreach ($this as $key => $value) {
             $currentValue = $callback($value, $key);
 
             if ($currentValue < $result || is_null($result)) {
@@ -83,7 +83,7 @@ trait Statistics
 
         $result = null;
 
-        foreach ($this->items as $key => $value) {
+        foreach ($this as $key => $value) {
             $currentValue = $callback($value, $key);
 
             if ($currentValue > $result || is_null($result)) {

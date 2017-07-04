@@ -12,7 +12,7 @@ trait Other
     public function keys(): self
     {
         return new static(function () {
-            foreach ($this->items as $key => $_) {
+            foreach ($this as $key => $_) {
                 yield $key;
             }
         });
@@ -26,7 +26,7 @@ trait Other
     public function values(): self
     {
         return new static(function () {
-            foreach ($this->items as $value) {
+            foreach ($this as $value) {
                 yield $value;
             }
         });
@@ -40,7 +40,7 @@ trait Other
      */
     public function each(callable $callback): self
     {
-        foreach ($this->items as $key => $item) {
+        foreach ($this as $key => $item) {
             if ($callback($item, $key) === false) {
                 break;
             }
@@ -67,7 +67,7 @@ trait Other
 
             $batch = [];
 
-            foreach ($this->items as $value) {
+            foreach ($this as $value) {
                 $i += 1;
 
                 $batch[] = $value;

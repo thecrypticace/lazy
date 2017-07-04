@@ -17,7 +17,7 @@ trait Tests
             return true;
         };
 
-        foreach ($this->items as $key => $value) {
+        foreach ($this as $key => $value) {
             if ($callback($value, $key)) {
                 return $value;
             }
@@ -37,7 +37,7 @@ trait Tests
     {
         $foundValue = null;
 
-        foreach ($this->items as $key => $value) {
+        foreach ($this as $key => $value) {
             if ($callback && $callback($value, $key)) {
                 $foundValue = $value;
             } elseif (! $callback) {

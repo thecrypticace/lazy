@@ -13,7 +13,7 @@ trait Functional
     public function map(callable $callback): self
     {
         return new static(function () use ($callback) {
-            foreach ($this->items as $key => $value) {
+            foreach ($this as $key => $value) {
                 yield $key => $callback($value, $key);
             }
         });
@@ -28,7 +28,7 @@ trait Functional
     public function keyBy(callable $callback): self
     {
         return new static(function () use ($callback) {
-            foreach ($this->items as $key => $value) {
+            foreach ($this as $key => $value) {
                 yield $callback($value, $key) => $value;
             }
         });
@@ -53,7 +53,7 @@ trait Functional
     public function collapse(): self
     {
         return new static(function () {
-            foreach ($this->items as $items) {
+            foreach ($this as $items) {
                 foreach ($items as $subKey => $subValue) {
                     yield $subKey => $subValue;
                 }
@@ -70,7 +70,7 @@ trait Functional
     public function filter(callable $callback): self
     {
         return new static(function () use ($callback) {
-            foreach ($this->items as $key => $value) {
+            foreach ($this as $key => $value) {
                 if ($callback($value, $key)) {
                     yield $key => $value;
                 }
@@ -90,7 +90,7 @@ trait Functional
         return new static(function () use ($callback, $initial) {
             $accumulator = $initial;
 
-            foreach ($this->items as $key => $value) {
+            foreach ($this as $key => $value) {
                 $accumulator = $callback($accumulator, $value, $key);
 
                 yield $key => $accumulator;
