@@ -30,7 +30,7 @@ final class Collection implements IteratorAggregate, Arrayable
     /**
      * Create a new collection.
      *
-     * @param  mixed  $items
+     * @param  iterable|Closure  $items
      */
     public function __construct($items = [])
     {
@@ -54,7 +54,7 @@ final class Collection implements IteratorAggregate, Arrayable
     /**
      * Results iterator of items from Collection.
      *
-     * @param  mixed  $items
+     * @param  iterable  $items
      * @return Traversable
      */
     private function getIterableItems($items): Traversable
@@ -73,7 +73,7 @@ final class Collection implements IteratorAggregate, Arrayable
     /**
      * Results iterator of items from Collection.
      *
-     * @param  mixed  $items
+     * @param  iterable  $items
      * @return static
      */
     private static function splat(...$items): self
