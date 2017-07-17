@@ -17,7 +17,7 @@ trait Proxies
         // Functional
         "reduce", "accumulate",
         "map", "filter", "each",
-        "flatMap",
+        "flatMap", "keyBy",
 
         // Statistics
         "sum", "min", "max", "average",

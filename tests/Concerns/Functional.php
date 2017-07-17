@@ -20,6 +20,12 @@ trait Functional
         $this->assertCollectionIs([1 => 1, 2 => 2, 3 => 3], $data->keyBy(function ($value, $key) {
             return $value;
         }));
+
+        $data = lazy([
+            ["foo" => 1],
+            ["foo" => 2],
+        ]);
+        $this->assertCollectionIs([1 => ["foo" => 1], 2 => ["foo" => 2]], $data->keyBy->foo);
     }
 
     /** @test */
