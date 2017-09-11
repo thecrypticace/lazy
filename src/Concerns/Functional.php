@@ -20,6 +20,19 @@ trait Functional
     }
 
     /**
+     * Transform each value in the collection.
+     *
+     * @param  string  $class
+     * @return static
+     */
+    public function mapInto($class): self
+    {
+        return $this->map(function ($value, $key) use ($class) {
+            return new $class($value, $key);
+        });
+    }
+
+    /**
      * Transform each key in the collection.
      *
      * @param  callable  $callback

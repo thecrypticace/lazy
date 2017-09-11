@@ -2,6 +2,8 @@
 
 namespace Tests\Concerns;
 
+use Tests\Stubs\MapIntoStub;
+
 trait Functional
 {
     /** @test */
@@ -11,6 +13,17 @@ trait Functional
         $this->assertCollectionIs([2 + 0, 4 + 1, 6 + 2], $data->map(function ($value, $key) {
             return $value * 2 + $key;
         }));
+    }
+
+    /** @test */
+    public function mapInto()
+    {
+        $data = lazy([1, 2, 3]);
+        $this->assertCollectionIs([
+            new MapIntoStub(1, 0),
+            new MapIntoStub(2, 1),
+            new MapIntoStub(3, 2),
+        ], $data->mapInto(MapIntoStub::class));
     }
 
     /** @test */
