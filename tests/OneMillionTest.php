@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
+/** @group long */
 class OneMillionTest extends TestCase
 {
     /** @test */

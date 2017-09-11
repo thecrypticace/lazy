@@ -28,4 +28,9 @@
     <php>
       <ini name="assert.exception" value="1"/>
     </php>
+    <groups>
+      <exclude>
+        <group>long</group>
+      </exclude>
+    </groups>
 </phpunit>
