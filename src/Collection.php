@@ -73,7 +73,7 @@ final class Collection implements IteratorAggregate, Arrayable
     /**
      * Results iterator of items from Collection.
      *
-     * @param  iterable  $items
+     * @param  iterable[]  $items
      * @return static
      */
     private static function splat(...$items): self
