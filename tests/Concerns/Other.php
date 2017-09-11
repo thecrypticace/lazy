@@ -76,4 +76,40 @@ trait Other
         $data = lazy([1, 2, 3]);
         $this->assertCollectionIs([1, 2, 3, 4, 5, 6], $data->append([4, 5, 6])->values());
     }
+
+    /** @test */
+    public function when()
+    {
+        $data = lazy([1, 2, 3]);
+        $data = $data->when(true, function () {
+            return lazy([2, 3, 4]);
+        });
+
+        $this->assertCollectionIs([2, 3, 4], $data);
+
+        $data = lazy([1, 2, 3]);
+        $data = $data->when(function () {
+            return true;
+        }, function () {
+            return lazy([2, 3, 4]);
+        });
+
+        $this->assertCollectionIs([2, 3, 4], $data);
+
+        $data = lazy([1, 2, 3]);
+        $data = $data->when(false, function () {
+            return lazy([2, 3, 4]);
+        });
+
+        $this->assertCollectionIs([1, 2, 3], $data);
+
+        $data = lazy([1, 2, 3]);
+        $data = $data->when(function () {
+            return false;
+        }, function () {
+            return lazy([2, 3, 4]);
+        });
+
+        $this->assertCollectionIs([1, 2, 3], $data);
+    }
 }

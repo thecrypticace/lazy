@@ -115,4 +115,20 @@ trait Other
             yield from $items;
         });
     }
+
+    /**
+     * Return result of callback when the given condition
+     * is true. Otherwise: return this collection
+     *
+     * @param  iterable  $items
+     * @return mixed
+     */
+    public function when($condition, callable $callback)
+    {
+        if ($value = value($condition)) {
+            return $callback($this, $value);
+        }
+
+        return $this;
+    }
 }
