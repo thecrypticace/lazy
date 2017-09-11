@@ -132,4 +132,19 @@ trait Other
 
         return $this;
     }
+
+    /**
+     * Run a callback when processing each item in a collection
+     *
+     * @param  callable  $callback
+     * @return mixed
+     */
+    public function during(callable $callback)
+    {
+        return $this->map(function ($value, $key) use ($callback) {
+            $callback($value, $key);
+
+            return $value;
+        });
+    }
 }

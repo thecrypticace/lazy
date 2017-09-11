@@ -112,4 +112,20 @@ trait Other
 
         $this->assertCollectionIs([1, 2, 3], $data);
     }
+
+    /** @test */
+    public function during()
+    {
+        $result = 0;
+
+        $data = lazy([1, 2, 3]);
+        $data = $data->during(function ($value, $key) use (&$result) {
+            $result += $value + $key;
+        });
+
+        $this->assertEquals(0, $result);
+
+        $this->assertCollectionIs([1, 2, 3], $data);
+        $this->assertEquals(9, $result);
+    }
 }
