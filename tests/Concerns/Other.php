@@ -2,6 +2,8 @@
 
 namespace Tests\Concerns;
 
+use stdClass;
+
 trait Other
 {
     /** @test */
@@ -144,5 +146,76 @@ trait Other
 
         $this->assertTrue($called);
         $this->assertCollectionIs([1, 2, 3], $data);
+    }
+
+    /** @test */
+    public function unique()
+    {
+        $data = lazy([1, 1, 2, 3, 3, 4]);
+        $data = $data->unique();
+
+        $this->assertCollectionIs([0 => 1, 2 => 2, 3 => 3, 5 => 4], $data);
+
+        $data = lazy([
+            $o1 = new stdClass,
+            $o1,
+            $o2 = new stdClass,
+            $o3 = new stdClass,
+            $o3,
+            $o4 = new stdClass,
+        ]);
+        $data = $data->unique();
+
+        $this->assertCollectionIs([0 => $o1, 2 => $o2, 3 => $o3, 5 => $o4], $data);
+
+        $data = lazy([1, 1, 2, 3, 3, 4]);
+        $data = $data->unique(function ($value) {
+            return ceil(sqrt($value));
+        });
+
+        $this->assertCollectionIs([0 => 1, 2 => 2], $data);
+
+        $data = lazy([1, 1, 2, 3, 3, 4]);
+        $data = $data->unique(function ($value, $key) {
+            return ceil(sqrt($key));
+        });
+
+        $this->assertCollectionIs([0 => 1, 1 => 1, 2 => 2, 5 => 4], $data);
+
+        $data = lazy([
+            ["id" => 1],
+            ["id" => 2],
+            ["id" => 1],
+            ["id" => 3],
+            ["id" => 1],
+            ["id" => 4],
+        ]);
+        $data = $data->unique(function ($value) {
+            return $value["id"];
+        });
+
+        $this->assertCollectionIs([
+            0 => ["id" => 1],
+            1 => ["id" => 2],
+            3 => ["id" => 3],
+            5 => ["id" => 4],
+        ], $data);
+
+        $data = lazy([
+            ["id" => 1],
+            ["id" => 2],
+            ["id" => 1],
+            ["id" => 3],
+            ["id" => 1],
+            ["id" => 4],
+        ]);
+        $data = $data->unique->id;
+
+        $this->assertCollectionIs([
+            0 => ["id" => 1],
+            1 => ["id" => 2],
+            3 => ["id" => 3],
+            5 => ["id" => 4],
+        ], $data);
     }
 }

@@ -32,6 +32,9 @@ trait Proxies
         // Tests
         "contains",
         "every",
+
+        // Other
+        "unique",
     ];
 
     /**

@@ -160,4 +160,35 @@ trait Other
 
         return $this;
     }
+
+    /**
+     * Unique items in a given collection based on a given callback
+     *
+     * @param  callable  $callback
+     * @return mixed
+     */
+    public function unique(callable $callback = null)
+    {
+        $callback = $callback ?? function ($value) {
+            if (is_object($value)) {
+                return spl_object_hash($value);
+            }
+
+            return $value;
+        };
+
+        return new static(function () use ($callback) {
+            $processed = [];
+
+            foreach ($this as $key => $item) {
+                $id = $callback($item, $key);
+
+                if (isset($processed[$id])) {
+                    continue;
+                }
+
+                yield $key => $processed[$id] = $item;
+            }
+        });
+    }
 }
