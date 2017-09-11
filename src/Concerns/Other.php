@@ -147,4 +147,17 @@ trait Other
             return $value;
         });
     }
+
+    /**
+     * Pass this collection to the given callback to allow for pipeline side effects
+     *
+     * @param  callable  $callback
+     * @return mixed
+     */
+    public function tap(callable $callback)
+    {
+        $callback($this);
+
+        return $this;
+    }
 }

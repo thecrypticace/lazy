@@ -128,4 +128,21 @@ trait Other
         $this->assertCollectionIs([1, 2, 3], $data);
         $this->assertEquals(9, $result);
     }
+
+    /** @test */
+    public function tap()
+    {
+        $called = false;
+
+        $data = lazy([1, 2, 3]);
+        $data = $data->tap(function ($collection) use ($data, &$called) {
+            $this->assertSame($collection, $data);
+
+            $called = true;
+        });
+
+
+        $this->assertTrue($called);
+        $this->assertCollectionIs([1, 2, 3], $data);
+    }
 }
