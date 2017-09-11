@@ -23,7 +23,7 @@ trait Proxies
         "sum", "min", "max", "average",
 
         // Tests
-        "contains",
+        "contains", "every",
     ];
 
     /**
