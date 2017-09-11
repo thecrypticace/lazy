@@ -30,6 +30,6 @@ class CollectionTest extends TestCase
 
     private function assertCollectionIs($expected, $actual, $message = "")
     {
-        $this->assertEquals($expected, $actual->toArray(), $message);
+        $this->assertSame($expected, $actual->toArray(), $message);
     }
 }
