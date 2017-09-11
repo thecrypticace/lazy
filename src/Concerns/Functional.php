@@ -35,6 +35,18 @@ trait Functional
     }
 
     /**
+     * Transform each key in the collection.
+     *
+     * @return static
+     */
+    public function keyByValue(): self
+    {
+        return $this->keyBy(function ($value) {
+            return $value;
+        });
+    }
+
+    /**
      * Returned a transformed, flattened series of collection entries.
      *
      * @param  callable  $callback

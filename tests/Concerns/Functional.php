@@ -29,6 +29,22 @@ trait Functional
     }
 
     /** @test */
+    public function keyByValue()
+    {
+        $data = lazy([1, 2, 3]);
+        $this->assertCollectionIs([1 => 1, 2 => 2, 3 => 3], $data->keyByValue());
+
+        // FIXME: Assert keys are arrays
+        /*
+        $data = lazy([
+            ["foo" => 1],
+            ["foo" => 2],
+        ]);
+        $this->assertCollectionIs([["foo" => 1] => ["foo" => 1], ["foo" => 2] => ["foo" => 2]], $data->keyByValue());
+        */
+    }
+
+    /** @test */
     public function collapse()
     {
         $data = lazy([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
