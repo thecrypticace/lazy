@@ -94,4 +94,25 @@ trait Tests
         $c = lazy([["foo" => false], ["foo" => false]]);
         $this->assertFalse($c->contains->foo);
     }
+
+    /** @test */
+    public function every()
+    {
+        $c = lazy(["a", "b", "c"]);
+
+        $this->assertFalse($c->every(function ($value) {
+            return $value === "a";
+        }));
+
+        $c = lazy([2, 4, 6]);
+        $this->assertTrue($c->every(function ($value) {
+            return $value % 2 === 0;
+        }));
+
+        $c = lazy([["foo" => true], ["foo" => true], ["foo" => true]]);
+        $this->assertTrue($c->every->foo);
+
+        $c = lazy([["foo" => false], ["foo" => true], ["foo" => true]]);
+        $this->assertFalse($c->every->foo);
+    }
 }

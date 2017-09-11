@@ -58,4 +58,21 @@ trait Tests
     {
         return ! is_null($this->first($callback));
     }
+
+    /**
+     * Return true if every item in a collection passes a given test
+     *
+     * @param  ?callable  $callback
+     * @return bool
+     */
+    public function every(callable $callback)
+    {
+        foreach ($this as $key => $value) {
+            if (! $callback($value, $key)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
