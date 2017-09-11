@@ -15,15 +15,23 @@ trait Proxies
      */
     protected static $proxies = [
         // Functional
-        "reduce", "accumulate",
-        "map", "filter", "each",
-        "flatMap", "keyBy",
+        "reduce",
+        "accumulate",
+        "map",
+        "filter",
+        "each",
+        "flatMap",
+        "keyBy",
 
         // Statistics
-        "sum", "min", "max", "average",
+        "sum",
+        "min",
+        "max",
+        "average",
 
         // Tests
-        "contains", "every",
+        "contains",
+        "every",
     ];
 
     /**
