@@ -60,7 +60,7 @@ trait Tests
     }
 
     /**
-     * Return true if every item in a collection passes a given test
+     * Return true if every item in a collection passes a given test.
      *
      * @param  ?callable  $callback
      * @return bool

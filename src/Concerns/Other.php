@@ -118,9 +118,9 @@ trait Other
 
     /**
      * Return result of callback when the given condition
-     * is true. Otherwise: return this collection
+     * is true. Otherwise: return this collection.
      *
-     * @param  boolean|Closure  $condition
+     * @param  bool|Closure  $condition
      * @param  callable  $callback
      * @return mixed
      */
@@ -134,7 +134,7 @@ trait Other
     }
 
     /**
-     * Run a callback when processing each item in a collection
+     * Run a callback when processing each item in a collection.
      *
      * @param  callable  $callback
      * @return mixed
@@ -149,7 +149,7 @@ trait Other
     }
 
     /**
-     * Pass this collection to the given callback to allow for pipeline side effects
+     * Pass this collection to the given callback to allow for pipeline side effects.
      *
      * @param  callable  $callback
      * @return mixed
@@ -162,7 +162,7 @@ trait Other
     }
 
     /**
-     * Unique items in a given collection based on a given callback
+     * Unique items in a given collection based on a given callback.
      *
      * @param  callable  $callback
      * @return mixed

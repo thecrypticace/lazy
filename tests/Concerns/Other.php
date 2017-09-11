@@ -143,7 +143,6 @@ trait Other
             $called = true;
         });
 
-
         $this->assertTrue($called);
         $this->assertCollectionIs([1, 2, 3], $data);
     }
