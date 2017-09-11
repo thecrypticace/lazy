@@ -19,11 +19,12 @@ trait Functional
     public function mapInto()
     {
         $data = lazy([1, 2, 3]);
-        $this->assertCollectionIs([
-            new MapIntoStub(1, 0),
-            new MapIntoStub(2, 1),
-            new MapIntoStub(3, 2),
-        ], $data->mapInto(MapIntoStub::class));
+        $data = $data->mapInto(MapIntoStub::class);
+        $data = $data->toArray();
+
+        $this->assertEquals(new MapIntoStub(1, 0), $data[0]);
+        $this->assertEquals(new MapIntoStub(2, 1), $data[1]);
+        $this->assertEquals(new MapIntoStub(3, 2), $data[2]);
     }
 
     /** @test */
