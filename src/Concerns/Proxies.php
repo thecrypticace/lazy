@@ -15,19 +15,19 @@ trait Proxies
      */
     protected static $proxies = [
         // Functional
-        "reduce",
         "accumulate",
-        "map",
-        "filter",
         "each",
+        "filter",
         "flatMap",
         "keyBy",
+        "map",
+        "reduce",
 
         // Statistics
-        "sum",
-        "min",
-        "max",
         "average",
+        "max",
+        "min",
+        "sum",
 
         // Tests
         "contains",
