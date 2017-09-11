@@ -120,7 +120,8 @@ trait Other
      * Return result of callback when the given condition
      * is true. Otherwise: return this collection
      *
-     * @param  iterable  $items
+     * @param  boolean|Closure  $condition
+     * @param  callable  $callback
      * @return mixed
      */
     public function when($condition, callable $callback)
