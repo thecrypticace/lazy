@@ -77,6 +77,15 @@ trait Functional
     }
 
     /** @test */
+    public function reject()
+    {
+        $data = lazy([1, 2, 3, 4, 5, 6]);
+        $this->assertCollectionIs([0 => 1, 2 => 3, 4 => 5], $data->reject(function ($value) {
+            return $value % 2 === 0;
+        }));
+    }
+
+    /** @test */
     public function reduce()
     {
         $data = lazy([1, 2, 3]);

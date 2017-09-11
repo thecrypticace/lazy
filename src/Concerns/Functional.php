@@ -91,6 +91,19 @@ trait Functional
     }
 
     /**
+     * Keep or remove entries from the collection.
+     *
+     * @param  callable  $callback
+     * @return static
+     */
+    public function reject(callable $callback): self
+    {
+        return $this->filter(function ($value, $key) use ($callback) {
+            return ! $callback($value, $key);
+        });
+    }
+
+    /**
      * Gather all intermediate iterations when reducing the collection to a single value.
      *
      * @param  callable  $callback
