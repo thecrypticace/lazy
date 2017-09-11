@@ -164,7 +164,7 @@ trait Other
     /**
      * Unique items in a given collection based on a given callback.
      *
-     * @param  callable  $callback
+     * @param  ?callable  $callback
      * @return mixed
      */
     public function unique(callable $callback = null)
