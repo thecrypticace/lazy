@@ -19,6 +19,7 @@ install:
   - composer install --no-interaction --prefer-dist --no-suggest
 
 script:
+  - vendor/bin/psalm
   - vendor/bin/phpunit
 
 after_success:
