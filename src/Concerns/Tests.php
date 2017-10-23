@@ -13,7 +13,7 @@ trait Tests
      */
     public function first(callable $callback = null, $default = null)
     {
-        $callback = $callback ?? function () {
+        $callback = $callback ?? function ($value, $key) {
             return true;
         };
 

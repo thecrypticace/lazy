@@ -191,7 +191,7 @@ trait Functional
      */
     public function pipeThrough(/* iterable */ $callbacks)
     {
-        return (new static($callbacks))->reduce(function ($collection, $callback) {
+        return (new static($callbacks))->reduce(function ($collection, callable $callback) {
             return $collection->pipe($callback);
         }, $this);
     }

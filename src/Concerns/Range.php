@@ -7,6 +7,9 @@ trait Range
     /**
      * Generate a range of numbers on-demand.
      *
+     * @param int|double $start
+     * @param int|double $end
+     * @param int|double $step
      * @return static
      */
     public static function range($start, $end, $step = 1): self

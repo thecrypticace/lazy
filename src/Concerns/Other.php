@@ -120,7 +120,7 @@ trait Other
      * Return result of callback when the given condition
      * is true. Otherwise: return this collection.
      *
-     * @param  bool|Closure  $condition
+     * @param  bool|\Closure  $condition
      * @param  callable  $callback
      * @return mixed
      */
@@ -169,7 +169,7 @@ trait Other
      */
     public function unique(callable $callback = null)
     {
-        $callback = $callback ?? function ($value) {
+        $callback = $callback ?? function ($value, $key) {
             if (is_object($value)) {
                 return spl_object_hash($value);
             }

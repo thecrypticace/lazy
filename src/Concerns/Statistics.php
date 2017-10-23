@@ -31,7 +31,7 @@ trait Statistics
      */
     public function sum($callback = null): int
     {
-        $callback = $callback ?? function ($value) {
+        $callback = $callback ?? function ($value, $key) {
             return $value;
         };
 
@@ -52,7 +52,7 @@ trait Statistics
      */
     public function min($callback = null)
     {
-        $callback = $callback ?? function ($value) {
+        $callback = $callback ?? function ($value, $key) {
             return $value;
         };
 
@@ -77,7 +77,7 @@ trait Statistics
      */
     public function max($callback = null)
     {
-        $callback = $callback ?? function ($value) {
+        $callback = $callback ?? function ($value, $key) {
             return $value;
         };
 
