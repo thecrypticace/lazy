@@ -18,7 +18,8 @@ before_install:
 install:
   - composer install --no-interaction --prefer-dist --no-suggest
 
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
