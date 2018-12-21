@@ -12,13 +12,17 @@ trait Statistics
      */
     public function average(callable $callback = null)
     {
+        $callback = $callback ?? function ($value, $key) {
+            return $value;
+        };
+
+        $sum = 0;
         $count = 0;
 
-        $sum = $this->map(function ($value) use (&$count) {
+        foreach ($this as $key => $value) {
+            $sum += $callback($value, $key);
             $count += 1;
-
-            return $value;
-        })->sum($callback);
+        }
 
         return $count > 0 ? $sum / $count : null;
     }
