@@ -62,7 +62,7 @@ trait Tests
     /**
      * Return true if every item in a collection passes a given test.
      *
-     * @param  ?callable  $callback
+     * @param  callable  $callback
      * @return bool
      */
     public function every(callable $callback)
