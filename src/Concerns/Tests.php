@@ -51,10 +51,10 @@ trait Tests
     /**
      * Determine of the collection contains a given item.
      *
-     * @param  ?callable  $callback
+     * @param  callable  $callback
      * @return bool
      */
-    public function contains(callable $callback = null): bool
+    public function contains(callable $callback): bool
     {
         return ! is_null($this->first($callback));
     }
