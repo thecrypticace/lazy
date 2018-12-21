@@ -33,7 +33,7 @@ final class HigherOrderCollectionProxy
     /**
      * Proxy accessing an attribute onto the collection items.
      *
-     * @param  string  $key
+     * @param  mixed  $key
      * @return mixed
      */
     public function __get($key)

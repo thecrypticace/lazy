@@ -11,7 +11,7 @@ trait Tests
      * @param  mixed  $default
      * @return mixed
      */
-    public function first(callable $callback = null, $default = null)
+    public function first(?callable $callback = null, $default = null)
     {
         $callback = $callback ?? function ($value, $key) {
             return true;
@@ -33,7 +33,7 @@ trait Tests
      * @param  mixed  $default
      * @return mixed
      */
-    public function last(callable $callback = null, $default = null)
+    public function last(?callable $callback = null, $default = null)
     {
         $foundValue = null;
 

@@ -25,7 +25,7 @@ trait Functional
      * @param  string  $class
      * @return static
      */
-    public function mapInto($class): self
+    public function mapInto(string $class): self
     {
         return $this->map(function ($value, $key) use ($class) {
             return new $class($value, $key);
@@ -153,10 +153,10 @@ trait Functional
     /**
      * Combine several collection's values together into pairs, triplets, etc….
      *
-     * @param  iterable... $collections
+     * @param  array<int, iterable> $collections
      * @return static
      */
-    public function zip(...$collections): self
+    public function zip(iterable ...$collections): self
     {
         $collections = static::splat($this, ...$collections);
 
@@ -189,7 +189,7 @@ trait Functional
      * @param  callable[]  $callbacks
      * @return mixed
      */
-    public function pipeThrough(/* iterable */ $callbacks)
+    public function pipeThrough(iterable $callbacks)
     {
         return (new static($callbacks))->reduce(function ($collection, callable $callback) {
             return $collection->pipe($callback);

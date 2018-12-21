@@ -93,7 +93,7 @@ trait Other
      * @param  iterable  $items
      * @return static
      */
-    public function prepend($items): self
+    public function prepend(iterable $items): self
     {
         return new static(function () use ($items) {
             yield from $items;
@@ -108,7 +108,7 @@ trait Other
      * @param  iterable  $items
      * @return static
      */
-    public function append($items): self
+    public function append(iterable $items): self
     {
         return new static(function () use ($items) {
             yield from $this;
@@ -120,17 +120,19 @@ trait Other
      * Return result of callback when the given condition
      * is true. Otherwise: return this collection.
      *
-     * @param  bool|\Closure  $condition
+     * @param  bool|callable  $condition
      * @param  callable  $callback
      * @return mixed
      */
     public function when($condition, callable $callback)
     {
-        if ($value = value($condition)) {
-            return $callback($this, $value);
+        if (is_callable($condition)) {
+            $condition = $condition();
         }
 
-        return $this;
+        return $condition
+            ? $callback($this, $condition)
+            : $this;
     }
 
     /**
@@ -167,7 +169,7 @@ trait Other
      * @param  ?callable  $callback
      * @return mixed
      */
-    public function unique(callable $callback = null)
+    public function unique(?callable $callback = null)
     {
         $callback = $callback ?? function ($value, $key) {
             if (is_object($value)) {

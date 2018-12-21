@@ -10,7 +10,7 @@ trait Statistics
      * @param  ?callable  $callback
      * @return mixed
      */
-    public function average(callable $callback = null)
+    public function average(?callable $callback = null)
     {
         $callback = $callback ?? function ($value, $key) {
             return $value;
@@ -33,7 +33,7 @@ trait Statistics
      * @param  ?callable  $callback
      * @return int
      */
-    public function sum($callback = null): int
+    public function sum(?callable $callback = null): int
     {
         $callback = $callback ?? function ($value, $key) {
             return $value;
@@ -54,7 +54,7 @@ trait Statistics
      * @param  ?callable  $callback
      * @return mixed
      */
-    public function min($callback = null)
+    public function min(?callable $callback = null)
     {
         $callback = $callback ?? function ($value, $key) {
             return $value;
@@ -79,7 +79,7 @@ trait Statistics
      * @param  ?callable  $callback
      * @return mixed
      */
-    public function max($callback = null)
+    public function max(?callable $callback = null)
     {
         $callback = $callback ?? function ($value, $key) {
             return $value;
