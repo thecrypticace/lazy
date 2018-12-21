@@ -2,7 +2,6 @@
 
 namespace Tests\Concerns;
 
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 
 trait Arrays
