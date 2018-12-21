@@ -29,12 +29,4 @@ trait Arrays
 
         $this->assertCollectionIs([1, 2, 3], $c);
     }
-
-    /** @test */
-    public function lazy_collections_can_be_converted_to_illuminate_collections()
-    {
-        $c = lazy([1, 2, 3])->collect();
-
-        $this->assertInstanceOf(Collection::class, $c);
-    }
 }

@@ -3,7 +3,6 @@
 namespace TheCrypticAce\Lazy\Concerns;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Collection as IlluminateCollection;
 
 trait Arrays
 {
@@ -39,15 +38,5 @@ trait Arrays
     public function eager(): self
     {
         return new static($this->all());
-    }
-
-    /**
-     * Convert to an Illuminate Collection.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function collect()
-    {
-        return new IlluminateCollection($this->all());
     }
 }
