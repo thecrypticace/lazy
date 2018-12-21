@@ -14,6 +14,9 @@ trait Statistics
         $this->assertEquals(50, $c->average(function ($i) {
             return $i->foo;
         }));
+
+        $c = lazy([1, 2, 3]);
+        $this->assertEquals(2, $c->average());
     }
 
     /** @test */
